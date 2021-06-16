@@ -1,0 +1,36 @@
+<h1>Structuaraldirective</h1>
+<div class="row">
+    <div class="col">
+        <label for="">Server Name</label>
+        <input type="text" class="form-control" name="server" [(ngModel)]="servername">
+    </div>
+    <div class="col">
+         <button class="btn btn-primary" (click)="addServer()">Add server</button>
+    </div>
+    <div class="col">
+        <p *ngIf="servercreated; else noserver">Server was created with a name {{servername}}</p>
+        <ng-template #noserver>
+            <p>No server created</p>
+        </ng-template>
+        <p>No server was created.</p>
+        <p [ngStyle]="{backgroundColor: getColor()}" [ngClass]="{'online': serverstatus === 'online'}">Server with ID {{serverid}} is {{getserverstatus()}}.</p>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col">
+        <button class="btn btn-success" (click)="showToggleDetails()">Display Details</button>
+        <p *ngIf="showSecrete">Secrete Password == tuna</p>
+        <!-- <div *ngFor="let logitem of log" [ngStyle]="{backgroundColor: logitem >= 5 ? 'blue' : 'white'}" [ngClass]="{'textwhite': logitem >= 5}"
+        >
+            <p>{{logitem}}</p>
+        </div> -->
+        <div 
+        *ngFor="let logitem of log; let i = index" 
+        [ngStyle]="{backgroundColor: i >= 4 ? 'blue' : 'white'}" 
+        [ngClass]="{'textwhite': i >= 4}"
+        >
+            <p>{{logitem}}</p>
+        </div>
+    </div>
+</div>

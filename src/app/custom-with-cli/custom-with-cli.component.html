@@ -1,0 +1,8 @@
+<p>custom-with-cli works!</p>
+{{getServerDetails()}}
+<label>Server Name</label>
+<input type="text" class="form-control" (input)="onUpdateServerName($event)">
+<p>{{serverName}}</p>
+<button class="btn btn-primary" [disabled]="!alloNewServer" (click)="onServerInitialise()">CLick me</button>
+
+<p>{{serverMsg}}</p>
